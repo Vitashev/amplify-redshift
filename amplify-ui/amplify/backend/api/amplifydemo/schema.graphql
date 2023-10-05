@@ -1,0 +1,57 @@
+type Query {
+  listProviders(input: ListProvidersInput): [Provider]
+    @function(name: "redshift-test")
+  getProvider(id: ID!): Provider @function(name: "redshift-test")
+}
+
+type Mutation {
+  createProvider(input: CreateProviderInput!): [Provider]
+    @function(name: "redshift-test")
+  updateProvider(input: UpdateProviderInput!): [Provider]
+    @function(name: "redshift-test")
+  deleteProvider(id: ID!): [Provider] @function(name: "redshift-test")
+}
+
+type Provider {
+  id: ID!
+  cms_certification_number_ccn: Int
+  provider_name: String
+  provider_address: String
+  citytown: String
+  state: String
+  zip_code: Int
+  telephone_number: Float
+}
+
+input ListProvidersInput {
+  id: ID
+  cms_certification_number_ccn: Int
+  provider_name: String
+  provider_address: String
+  citytown: String
+  state: String
+  zip_code: Int
+  telephone_number: Long
+}
+
+input CreateProviderInput {
+  id: ID
+  cms_certification_number_ccn: Int
+  provider_name: String
+  provider_address: String
+  citytown: String
+  state: String
+  zip_code: Int
+  telephone_number: Float
+}
+
+input UpdateProviderInput {
+  id: ID!
+  cms_certification_number_ccn: Int
+  provider_name: String
+  provider_address: String
+  citytown: String
+  state: String
+  zip_code: Int
+  telephone_number: Float
+}
